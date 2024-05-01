@@ -1,4 +1,4 @@
-namespace AssoSystem.Models
+namespace AssoSystem.Models.ViewModels
 {
     public class ErrorViewModel
     {

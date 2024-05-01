@@ -1,4 +1,5 @@
 using AssoSystem.Data;
+using AssoSystem.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,13 +13,18 @@ namespace AssoSystem
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
+            builder.Services.AddDbContext<AssoSystemContext>(options =>
+                options.UseMySql("server=localhost; initial catalog=ASSOSYSTEM; uid=root; pwd=root",
+                    Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.25-mysql")));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+            // Injeções de dependência
+            builder.Services.AddScoped<AssociateService>();
+            builder.Services.AddScoped<AddressService>();
+
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddControllersWithViews();
+                .AddEntityFrameworkStores<AssoSystemContext>();
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using AssoSystem.Models;
+﻿using AssoSystem.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
