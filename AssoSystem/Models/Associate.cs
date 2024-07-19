@@ -5,13 +5,12 @@ namespace AssoSystem.Models
 {
     public class Associate : Person
     {
-        
+
         // Usar para o RG quando PF
+        
         [Display(Name = "Ins. Estadual")]
-        
-        // Usar para data de fundação da empresa / expedição do RG
         public string StateNumber { get; set; }
-        
+        // Usar para data de fundação da empresa / expedição do RG
         [Display(Name = "Dt.Criação")]
         public DateOnly BornDate { get; set; }
 
@@ -57,6 +56,5 @@ namespace AssoSystem.Models
         public Associate()
         {
         }
-        
     }
 }
