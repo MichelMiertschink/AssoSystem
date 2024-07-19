@@ -20,7 +20,6 @@ namespace AssoSystem
 
             // Injeções de dependência
             builder.Services.AddScoped<AssociateService>();
-            builder.Services.AddScoped<AddressService>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<AssoSystemContext>();

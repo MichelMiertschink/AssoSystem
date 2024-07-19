@@ -16,44 +16,8 @@ namespace AssoSystem.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.28")
+                .HasAnnotation("ProductVersion", "6.0.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("AssoSystem.Models.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Addressomplement")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Neigborhood")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("NumberPlace")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PostalCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PublicPlace")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("addresses");
-                });
 
             modelBuilder.Entity("AssoSystem.Models.Associate", b =>
                 {
@@ -61,19 +25,25 @@ namespace AssoSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AddressID")
-                        .HasColumnType("int");
+                    b.Property<string>("AddressComplement")
+                        .HasColumnType("longtext");
 
                     b.Property<DateOnly?>("BirthDate")
                         .HasColumnType("date");
+
+                    b.Property<DateOnly>("BornDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("CnpjCpf")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("CorporateReason")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateOnly?>("ExitDate")
                         .HasColumnType("date");
@@ -96,8 +66,27 @@ namespace AssoSystem.Migrations
                     b.Property<string>("MothersName")
                         .HasColumnType("longtext");
 
-                    b.Property<DateOnly>("ShippingDate")
-                        .HasColumnType("date");
+                    b.Property<string>("Neigborhood")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("NumberPlace")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PublicPlace")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RegisterName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("StateNumber")
                         .IsRequired()
@@ -106,12 +95,13 @@ namespace AssoSystem.Migrations
                     b.Property<bool>("Type")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("WifeName")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AddressID");
 
                     b.ToTable("associates");
                 });
@@ -310,17 +300,6 @@ namespace AssoSystem.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("AssoSystem.Models.Associate", b =>
-                {
-                    b.HasOne("AssoSystem.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

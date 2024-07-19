@@ -5,14 +5,14 @@ namespace AssoSystem.Models
 {
     public class Associate : Person
     {
-        
+
         // Usar para o RG quando PF
-        [Display(Name = "Ins. Estadual")]
         
-        // Usar para data de fundação da empresa / expedição do RG
+        [Display(Name = "IE/RG")]
         public string StateNumber { get; set; }
-        
+        // Usar para data de fundação da empresa / expedição do RG
         [Display(Name = "Dt.Criação")]
+        [DataType(DataType.DateTime)]
         public DateOnly BornDate { get; set; }
 
         // Endereço
@@ -42,21 +42,24 @@ namespace AssoSystem.Models
         public bool? Gender{ get; set; }
         [Display(Name = "Estado Civil")]
         public MaritalStatus? MaritalStatus { get; set; }
+        [Display(Name = "Estado Civil")]
         public int MaritalStatusId { get; set; }
         [Display(Name = "Dt. Nascimento")]
+        [DataType(DataType.Date)]
         public DateOnly? BirthDate { get; set; }
         [Display(Name = "Nome da mãe")]
         public string? MothersName { get; set; }
         [Display(Name = "Nome da esposa")]
         public string? WifeName { get; set; }
         [Display(Name = "Dt. inclusão")]
+        [DataType(DataType.DateTime)]
         public DateOnly? IncludeDate { get; set; }
         [Display(Name = "Dt. de Saída")]
+        [DataType(DataType.DateTime)]
         public DateOnly? ExitDate { get; set; }
 
         public Associate()
         {
         }
-        
     }
 }
