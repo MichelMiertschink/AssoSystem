@@ -7,7 +7,7 @@
 <h4>Associado</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group form-check">
@@ -15,31 +15,42 @@
                     <input class="form-check-input" asp-for="Type" /> Pessoa Jurídica
                 </label>
             </div>
-            <div class="form-group">
-                <label asp-for="RegisterName" class="control-label"></label>
-                <input asp-for="RegisterName" class="form-control" />
-                <span asp-validation-for="RegisterName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FantasyName" class="control-label"></label>
-                <input asp-for="FantasyName" class="form-control" />
-                <span asp-validation-for="FantasyName" class="text-danger"></span>
-            </div>
+            <table class="col-md-12">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="RegisterName" class="control-label"></label>
+                            <input asp-for="RegisterName" class="form-control" />
+                            <span asp-validation-for="RegisterName" class="text-danger"></span>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FantasyName" class="control-label"></label>
+                            <input asp-for="FantasyName" class="form-control" />
+                            <span asp-validation-for="FantasyName" class="text-danger"></span>
+                        </div>
+                    </td>
+            </table>
             <div class="form-group">
                 <label asp-for="CnpjCpf" class="control-label"></label>
                 <input asp-for="CnpjCpf" class="form-control" />
                 <span asp-validation-for="CnpjCpf" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PostalCode" class="control-label"></label>
-                <input asp-for="PostalCode" class="form-control" />
-                <span asp-validation-for="PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="StateNumber" class="control-label"></label>
                 <input asp-for="StateNumber" class="form-control" />
                 <span asp-validation-for="StateNumber" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="BornDate" class="control-label"></label>
                 <input asp-for="BornDate" class="form-control" />
@@ -75,7 +86,7 @@
                 <input asp-for="State" class="form-control" />
                 <span asp-validation-for="State" class="text-danger"></span>
             </div>
-           
+
             <div class="form-group">
                 <label asp-for="PostalCode" class="control-label"></label>
                 <input asp-for="PostalCode" class="form-control" />
@@ -159,9 +170,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-secondary shadow-sm">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

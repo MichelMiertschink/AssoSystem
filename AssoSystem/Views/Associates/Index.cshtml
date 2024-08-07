@@ -1,49 +1,15 @@
 ﻿@model IEnumerable<AssoSystem.Models.Associate>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Associados";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<a asp-action="Create" class="btn btn-outline-dark btn-sm">Novo</a>
+<table class="table table-bordered table-sm table-striped shadow">
+    <thead class="bg-success bg-opacity-75 text-center">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostalCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaritalStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaritalStatusId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BirthDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MothersName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WifeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IncludeDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExitDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RegisterName)
@@ -55,71 +21,37 @@
                 @Html.DisplayNameFor(model => model.CnpjCpf)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
+                @Html.DisplayNameFor(model => model.IncludeDate)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
                     @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostalCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaritalStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaritalStatusId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MothersName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WifeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IncludeDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExitDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisterName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FantasyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CnpjCpf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FantasyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CnpjCpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncludeDate)
+                </td>
+                <td>
+                    <a class="badge rounded-pill bg-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="badge rounded-pill bg-secondary" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a class="badge rounded-pill bg-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a> ||
+                    <a class="badge rounded-pill bg-dark" asp-action="" asp-route-id="@item.Id">Veículos</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
