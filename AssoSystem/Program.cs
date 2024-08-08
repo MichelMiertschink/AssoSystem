@@ -13,10 +13,8 @@ namespace AssoSystem
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<AssoSystemContext>(options =>
-                options.UseMySql("server=localhost; initial catalog=ASSOSYSTEM; uid=root; pwd=root",
-                    Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.25-mysql")));
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.AddDbContextPool<AssoSystemContext>(options =>
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             // Injeções de dependência
             builder.Services.AddScoped<AssociateService>();
