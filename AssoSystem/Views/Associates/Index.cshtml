@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Associados";
 }
-
 <a asp-action="Create" class="btn btn-outline-dark btn-sm">Novo</a>
 <table class="table table-bordered table-sm table-striped shadow">
     <thead class="bg-success bg-opacity-75 text-center">
@@ -21,7 +20,7 @@
                 @Html.DisplayNameFor(model => model.CnpjCpf)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IncludeDate)
+                @Html.DisplayNameFor(model => model.CreatedAt)
             </th>
             <th></th>
         </tr>
@@ -30,7 +29,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
@@ -43,12 +42,12 @@
                     @Html.DisplayFor(modelItem => item.CnpjCpf)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IncludeDate)
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
                 </td>
                 <td>
-                    <a class="badge rounded-pill bg-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a class="badge rounded-pill bg-secondary" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                    <a class="badge rounded-pill bg-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a> ||
+                    <a class="badge rounded-pill bg-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a class="badge rounded-pill bg-secondary" asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
+                    <a class="badge rounded-pill bg-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
                     <a class="badge rounded-pill bg-dark" asp-action="" asp-route-id="@item.Id">Veículos</a>
                 </td>
             </tr>
