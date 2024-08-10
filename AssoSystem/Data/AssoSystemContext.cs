@@ -11,6 +11,6 @@ namespace AssoSystem.Data
             : base(options)
         {            
         }
-        public DbSet<Associate> associates { get; set; } = default!;
+        public DbSet<Associate> Associates { get; set; } = default!;
     }
 }

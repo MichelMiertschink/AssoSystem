@@ -7,24 +7,36 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssoSystem.Data;
 using AssoSystem.Models;
+using AssoSystem.Services;
 
 namespace AssoSystem.Controllers
 {
     public class AssociatesController : Controller
     {
-        private readonly AssoSystemContext _context;
+        private readonly AssociateService _associateService;
 
-        public AssociatesController(AssoSystemContext context)
+        public AssociatesController(AssociateService associateService )
         {
-            _context = context;
+            _associateService = associateService;
         }
 
         // GET: Associates
         public async Task<IActionResult> Index()
         {
-              return _context.associates != null ? 
-                          View(await _context.associates.ToListAsync()) :
-                          Problem("Entity set 'AssoSystemContext.associates'  is null.");
+            var list = await _associateService.FindAllAsync();
+            return View( list );
+                
+        }
+
+        //GET to index -- Paging and filter
+        //public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "IncludeDate")
+        //{
+        //    var resultado = _associateService.FindAllAsync();
+        //        //_loadSchedulingService.FindByOriginDestinyDriverAsync(filter);
+
+        //    var model = await PagingList.CreateAsync(resultado.Result, 5, pageindex, sort, "IncludeDate");
+        //    model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+        //    return View(model);
         }
 
         // GET: Associates/Details/5
