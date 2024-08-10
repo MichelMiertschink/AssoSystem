@@ -1,27 +1,36 @@
 ﻿@model AssoSystem.Models.Associate
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Excluir";
 }
-
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja excluir ?</h3>
 <div>
-    <h4>Associate</h4>
+    <h4>Associado</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RegisterName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RegisterName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FantasyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FantasyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CnpjCpf)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CnpjCpf)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.StateNumber)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.StateNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BornDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BornDate)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PublicPlace)
@@ -66,22 +75,10 @@
             @Html.DisplayFor(model => model.PostalCode)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.MaritalStatus)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MaritalStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaritalStatusId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaritalStatusId)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.BirthDate)
@@ -114,30 +111,6 @@
             @Html.DisplayFor(model => model.ExitDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegisterName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FantasyName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FantasyName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CnpjCpf)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CnpjCpf)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreatedAt)
         </dt>
         <dd class = "col-sm-10">
@@ -153,7 +126,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Excluir" class="btn btn-danger shadow shadow-sm" /> |
+        <a asp-action="Index" class="btn btn-secondary shadow shadow-sm">Retornar</a>
     </form>
 </div>
